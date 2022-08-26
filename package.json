@@ -7,14 +7,15 @@
   "private": true,
   "dependencies": {
     "@sap/cds": ">=6",
+    "@sap/xssec": "^3",
     "express": "^4",
     "hdb": "^0.19.0",
-    "@sap/xssec": "^3",
     "passport": "^0"
   },
   "scripts": {
     "start": "cds run",
-    "h-deploy": "cds deploy --to hana:CAPHANAFE-dev"
+    "h-deploy": "cds deploy --to hana:CAPHANAFE-dev",
+    "watch-fe-bookshop": "cds watch --open fe-bookshop/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "engines": {
     "node": "^16.15"
@@ -67,5 +68,14 @@
         "kind": "cloudfoundry"
       }
     }
+  },
+  "sapux": [
+    "app/fe-bookshop"
+  ],
+  "devDependencies": {
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/ux-specification": "^1.102.4",
+    "@sapui5/ts-types": "^1.92.2",
+    "eslint": "^7.32.0"
   }
 }
