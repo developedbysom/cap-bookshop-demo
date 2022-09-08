@@ -13,6 +13,8 @@
     "passport": "^0"
   },
   "scripts": {
+    "build": "npx mbt build",
+    "deploy": "cf deploy mta_archives/cap-bookshop-demo_1.0.0.mtar",
     "start": "cds run",
     "h-deploy": "cds deploy --to hana:CAPHANAFE-dev",
     "watch-fe-bookshop": "cds watch --open fe-bookshop/webapp/index.html?sap-ui-xx-viewCache=false"

@@ -1,5 +1,31 @@
 {
-  "scopes": [],
+  "xsappname": "capxsapp",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.USA_USER",
+      "description": "USA_USER"
+    }
+  ],
   "attributes": [],
-  "role-templates": []
+  "role-templates": [
+    {
+      "name": "USA_USER",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.USA_USER"
+      ],
+      "attribute-references": []
+    }
+  ],
+  "oauth2-configuration": {
+    "credential-types": [
+      "binding-secret",
+      "x509"
+    ],
+    "redirect-uris": [
+      "https://**cfapps.us10.hana.ondemand.com/login/callback*",
+      "http://localhost:5000/**"
+    ]
+  }
 }

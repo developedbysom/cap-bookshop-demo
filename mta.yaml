@@ -24,8 +24,8 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      - name: cap-bookshop-demo-db
-      - name: cap-bookshop-demo-auth
+      - name: CAPHANAFE-dev
+      - name: capxsuaa-auth
 
   - name: cap-bookshop-demo-db-deployer
     type: hdb
@@ -33,7 +33,7 @@ modules:
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: cap-bookshop-demo-db
+      - name: CAPHANAFE-dev
 
   - name: cap-bookshop-demo
     type: approuter.nodejs
@@ -49,20 +49,20 @@ modules:
           name: srv-api # must be used in xs-app.json as well
           url: ~{srv-url}
           forwardAuthToken: true
-      - name: cap-bookshop-demo-auth
+      - name: capxsuaa-auth
 
 resources:
-  - name: cap-bookshop-demo-db
+  - name: CAPHANAFE-dev
     type: com.sap.xs.hdi-container
     parameters:
       service: hana
       service-plan: hdi-shared
-  - name: cap-bookshop-demo-auth
+  - name: capxsuaa-auth
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: cap-bookshop-demo-${org}-${space}
+        xsappname: capxsapp
         tenant-mode: dedicated
